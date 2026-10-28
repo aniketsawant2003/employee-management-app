@@ -1,19 +1,15 @@
 <?php
 
-$host = "mysql";
-$user = "root";
-$password = "Root@123";
-$database = "employee_db";
-
 $conn = mysqli_connect(
-    $host,
-    $user,
-    $password,
-    $database
+    "mysql",
+    "root",
+    "Root@123",
+    "employee_db"
 );
 
-if(!$conn){
-    die("Database Connection Failed");
+if (!$conn) {
+    die("Connection Failed: " . mysqli_connect_error());
 }
 
+echo "Database Connected Successfully";
 ?>
