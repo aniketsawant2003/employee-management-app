@@ -2,22 +2,28 @@
 session_start();
 
 $error = "";
+require_once "config.php";
 
 if(isset($_POST['login']))
+
 {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $sql = "SELECT * FROM users
+            WHERE username='$username'
+            AND password='$password'";
 
-    // Demo Credentials
-    if($username == "admin" && $password == "admin123")
-    {
-        $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
+    $result = mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result) > 0)
+    {	
+    	$_SESSION['username'] = $username;
+	 header("Location: dashboard.php");
         exit();
     }
     else
     {
-        $error = "Invalid Username or Password!";
+        echo "Invalid Username or Password";
     }
 }
 ?>
