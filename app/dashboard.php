@@ -23,7 +23,7 @@ if(!isset($_SESSION['username']))
     <div class="card-container">
 
         <div class="card">
-            <h3>Total Employees</h3>
+            <h3>Working Empoyees</h3>
             <p>50</p>
         </div>
 
